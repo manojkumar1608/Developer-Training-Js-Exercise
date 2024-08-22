@@ -109,5 +109,6 @@ function saveDetails() {
 
     loadDetails();
 }
+loadDetails()
 
 document.getElementById('saveBtn').addEventListener('click', saveDetails);
