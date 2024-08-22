@@ -388,6 +388,7 @@
   margin: 10px auto; 
   padding: 40px;
   background-color: #f7f7f7; 
+  border: 2px solid var(--bg);
   border-radius: 8px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   box-sizing: border-box;
@@ -440,7 +441,7 @@
 }
 
 /* Result and error messages styling */
-#result, #reverseString_result, #longestString_result{
+#result, #reverseString_result, #longestString_result,#form_result{
   margin-top: 15px;
   font-weight: bold;
   font-size: 18px;

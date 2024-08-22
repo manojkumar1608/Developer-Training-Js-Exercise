@@ -18,9 +18,6 @@ function findmax() {
     const maxValue = max(number1, number2);
     document.getElementById('error').innerText = "";
     document.getElementById('result').innerText = `Max: ${maxValue}`;
-
-    document.getElementById('num1').value = '';
-    document.getElementById('num2').value = '';
 }
 
 function reverseString() {
@@ -35,7 +32,6 @@ function reverseString() {
     }
     const reversedString = inputString.split('').reverse().join('');
     document.getElementById('reverseString_result').innerText = reversedString;
-    document.getElementById('stringInput').value = '';
 }
 
 function FindLongestWord() {
@@ -50,7 +46,6 @@ function FindLongestWord() {
     const wordsArray = inputString.split(',').map(word => word.trim());
     const longestWord = wordsArray.reduce((a, b) => a.length > b.length ? a : b, '');
     document.getElementById('longestString_result').innerText = longestWord;
-    document.getElementById('wordInput').value = '';
 }
 
 // Function to load details from cookies
@@ -77,11 +72,9 @@ function saveDetails() {
     const phone = document.getElementById('phoneInput').value;
     const errorElement = document.getElementById('form_error');
 
-    // Regular expression to allow only letters, numbers, and spaces
     const validName = /^[a-zA-Z\s]*$/;
     const validPhone = /^[0-9\s]*$/;
 
-    // Clear any previous error message
     errorElement.innerText = "";
 
     if (name.trim() === "") {
@@ -97,18 +90,11 @@ function saveDetails() {
         document.cookie = `name=${encodeURIComponent(name)}; max-age=${7*24*60*60}`;
         document.cookie = `phone=${encodeURIComponent(phone)}; max-age=${7*24*60*60}`;
         
-        alert('Details saved!');
-
-        // Reset the input fields
-        document.getElementById('nameInput').value = "";
-        document.getElementById('phoneInput').value = "";
-
-        // Clear the error message
         errorElement.innerText = "";
+        document.getElementById('form_result').innerText = "Data Saved Successfully!";
     }
 
-    loadDetails();
 }
-loadDetails()
+loadDetails();
 
 document.getElementById('saveBtn').addEventListener('click', saveDetails);
