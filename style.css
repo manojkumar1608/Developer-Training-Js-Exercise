@@ -418,7 +418,7 @@
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   box-sizing: border-box;
 }
 
@@ -426,7 +426,7 @@
 .submit button {
   width: 100%;
   padding: 10px;
-  background-color: #365E32; 
+  background-color: var(--bg); 
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -440,18 +440,25 @@
 }
 
 /* Result and error messages styling */
-#result, #error, #reverseString_result, #longestSrting_result{
+#result, #reverseString_result, #longestString_result{
   margin-top: 15px;
-  font-weight: 500;
-  font-size: 16px;
-  color: #365E32;
+  font-weight: bold;
+  font-size: 18px;
+  color: solid black;
   text-align: center;
 }
 
-#error {
+#error, #form_error, #longestString_error, #reverseString_error {
   color: #e74c3c; 
+  margin-top: 15px;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
 }
-
+.red-asterisk {
+  color: red;
+  font-size: 20px;
+}
 
 /* Styles for screens below 300px */
 @media only screen and (max-width: 300px) {
