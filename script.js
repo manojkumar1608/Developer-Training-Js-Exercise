@@ -6,7 +6,7 @@ function max(num1, num2) {
     }
 }
 function findmax() {
-    
+
     let number1 = parseFloat(document.getElementById('num1').value);
     const number2 = parseFloat(document.getElementById('num2').value);
 
@@ -27,7 +27,7 @@ function reverseString() {
     errorElement.innerText = "";
     document.getElementById('reverseString_result').innerText = ""
 
-    if(inputString.trim() === '') {
+    if (inputString.trim() === '') {
         document.getElementById('reverseString_error').innerText = "Please Enter a Valid String";
     }
     const reversedString = inputString.split('').reverse().join('');
@@ -51,19 +51,19 @@ function FindLongestWord() {
 // Function to load details from cookies
 function loadDetails() {
     const cookies = document.cookie.split(';');
-    if(cookies.length > 1) {
-    cookies.forEach(cookie => {
-        const [name, value] = cookie.trim().split('=');
-        if (name === 'name') {
-            document.querySelector('.header-name').innerText = decodeURIComponent(value);
-        } else if (name === 'phone') {
-            document.querySelector('.phone').innerHTML = `<span>Phone:</span> ${decodeURIComponent(value)}`;
-        }
-    });
-}else{
-    document.querySelector('.header-name').innerText = "Manoj Kumar";
-    document.querySelector('.phone').innerHTML = `<span>Phone:</span>9908993803`;
-}
+    if (cookies.length > 1) {
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'name') {
+                document.querySelector('.header-name').innerText = decodeURIComponent(value);
+            } else if (name === 'phone') {
+                document.querySelector('.phone').innerHTML = `<span>Phone:</span> ${decodeURIComponent(value)}`;
+            }
+        });
+    } else {
+        document.querySelector('.header-name').innerText = "Manoj Kumar";
+        document.querySelector('.phone').innerHTML = `<span>Phone:</span>9908993803`;
+    }
 }
 
 // Function to save details in cookies
@@ -87,9 +87,9 @@ function saveDetails() {
         errorElement.innerText = "Phone Number contains invalid characters!";
     } else {
         // Cookies with an expiry date of 7 days
-        document.cookie = `name=${encodeURIComponent(name)}; max-age=${7*24*60*60}`;
-        document.cookie = `phone=${encodeURIComponent(phone)}; max-age=${7*24*60*60}`;
-        
+        document.cookie = `name=${encodeURIComponent(name)}; max-age=${7 * 24 * 60 * 60}`;
+        document.cookie = `phone=${encodeURIComponent(phone)}; max-age=${7 * 24 * 60 * 60}`;
+
         errorElement.innerText = "";
         document.getElementById('form_result').innerText = "Data Saved Successfully!";
     }
