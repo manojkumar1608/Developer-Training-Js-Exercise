@@ -3,43 +3,47 @@ function max() {
 
     let number1 = parseFloat(document.getElementById('num1').value);
     const number2 = parseFloat(document.getElementById('num2').value);
+    const resultElement = document.getElementById('max_result')
+    const errorElement = document.getElementById('max_error')
 
     if (isNaN(number1) || isNaN(number2)) {
-        document.getElementById('max_result').innerText = "";
-        document.getElementById('max_error').innerText = "Please enter valid numbers!";
+        resultElement.innerText = "";
+        errorElement.innerText = "Please enter valid numbers!";
         return;
     }
     const maxValue = number1 > number2 ? number1 : number2;
-    document.getElementById('max_error').innerText = "";
-    document.getElementById('max_result').innerText = `Max: ${maxValue}`;
+    errorElement.innerText = "";
+    resultElement.innerText = `Max: ${maxValue}`;
 }
 
 function reverse() {
     const inputString = document.getElementById('stringInput').value;
     const errorElement = document.getElementById('reverse_error');
+    const resultElement = document.getElementById('reverse_result')
 
     errorElement.innerText = "";
-    document.getElementById('reverse_result').innerText = ""
+    resultElement.innerText = ""
 
     if (inputString.trim() === '') {
         errorElement.innerText = "Please Enter a Valid String";
     }
     const reversedString = inputString.split('').reverse().join('');
-    document.getElementById('reverse_result').innerText = reversedString;
+    resultElement.innerText = reversedString;
 }
 
 function FindLongestWord() {
     const inputString = document.getElementById('wordInput').value;
     const errorElement = document.getElementById('longestWord_error');
+    const resultElement = document.getElementById('longestWord_result')
     errorElement.innerText = ""
-    document.getElementById('longestWord_result').innerText = "";
+    resultElement.innerText = "";
 
     if (inputString.trim() === "") {
         errorElement.innerText = "Field cannot be Empty";
     }
     const wordsArray = inputString.split(',').map(word => word.trim());
     const longestWord = wordsArray.reduce((a, b) => a.length > b.length ? a : b, '');
-    document.getElementById('longestWord_result').innerText = longestWord;
+    resultElement.innerText = longestWord;
 }
 
 // Function to load details from cookies
