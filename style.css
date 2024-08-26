@@ -423,7 +423,7 @@
 }
 
 /* Button styling */
-.submit button {
+.submitBtn  {
   width: 100%;
   padding: 10px;
   background-color: var(--bg); 
@@ -435,12 +435,12 @@
   transition: background-color 0.3s;
 }
 
-.submit button:hover {
+.submitBtn:hover {
   background-color: #2a4826; 
 }
 
 /* Result and error messages styling */
-#result, #reverseString_result, #longestString_result,#form_result{
+#max_result, #reverse_result, #longestWord_result, #cookie_result{
   margin-top: 15px;
   font-weight: bold;
   font-size: 18px;
@@ -448,7 +448,7 @@
   text-align: center;
 }
 
-#error, #form_error, #longestString_error, #reverseString_error {
+#max_error, #cookie_error, #longestWord_error, #reverse_error {
   color: #e74c3c; 
   margin-top: 15px;
   font-weight: 400;

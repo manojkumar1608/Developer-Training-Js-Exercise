@@ -1,51 +1,45 @@
-function max(num1, num2) {
-    if (num1 > num2) {
-        return num1
-    } else {
-        return num2
-    }
-}
-function findmax() {
+
+function max() {
 
     let number1 = parseFloat(document.getElementById('num1').value);
     const number2 = parseFloat(document.getElementById('num2').value);
 
     if (isNaN(number1) || isNaN(number2)) {
-        document.getElementById('result').innerText = "";
-        document.getElementById('error').innerText = "Please enter valid numbers!";
+        document.getElementById('max_result').innerText = "";
+        document.getElementById('max_error').innerText = "Please enter valid numbers!";
         return;
     }
-    const maxValue = max(number1, number2);
-    document.getElementById('error').innerText = "";
-    document.getElementById('result').innerText = `Max: ${maxValue}`;
+    const maxValue = number1 > number2 ? number1 : number2;
+    document.getElementById('max_error').innerText = "";
+    document.getElementById('max_result').innerText = `Max: ${maxValue}`;
 }
 
-function reverseString() {
+function reverse() {
     const inputString = document.getElementById('stringInput').value;
-    const errorElement = document.getElementById('reverseString_error');
+    const errorElement = document.getElementById('reverse_error');
 
     errorElement.innerText = "";
-    document.getElementById('reverseString_result').innerText = ""
+    document.getElementById('reverse_result').innerText = ""
 
     if (inputString.trim() === '') {
-        document.getElementById('reverseString_error').innerText = "Please Enter a Valid String";
+        errorElement.innerText = "Please Enter a Valid String";
     }
     const reversedString = inputString.split('').reverse().join('');
-    document.getElementById('reverseString_result').innerText = reversedString;
+    document.getElementById('reverse_result').innerText = reversedString;
 }
 
 function FindLongestWord() {
     const inputString = document.getElementById('wordInput').value;
-    const errorElement = document.getElementById('longestString_error');
+    const errorElement = document.getElementById('longestWord_error');
     errorElement.innerText = ""
-    document.getElementById('longestString_result').innerText = "";
+    document.getElementById('longestWord_result').innerText = "";
 
     if (inputString.trim() === "") {
-        document.getElementById('longestString_error').innerText = "Field cannot be Empty";
+        errorElement.innerText = "Field cannot be Empty";
     }
     const wordsArray = inputString.split(',').map(word => word.trim());
     const longestWord = wordsArray.reduce((a, b) => a.length > b.length ? a : b, '');
-    document.getElementById('longestString_result').innerText = longestWord;
+    document.getElementById('longestWord_result').innerText = longestWord;
 }
 
 // Function to load details from cookies
@@ -70,12 +64,14 @@ function loadDetails() {
 function saveDetails() {
     const name = document.getElementById('nameInput').value;
     const phone = document.getElementById('phoneInput').value;
-    const errorElement = document.getElementById('form_error');
+    const errorElement = document.getElementById('cookie_error');
+    const resultElement = document.getElementById('cookie_result');
 
     const validName = /^[a-zA-Z\s]*$/;
     const validPhone = /^[0-9\s]*$/;
 
     errorElement.innerText = "";
+    resultElement.innerText = "";
 
     if (name.trim() === "") {
         errorElement.innerText = "Please Enter Your Name!";
@@ -91,10 +87,9 @@ function saveDetails() {
         document.cookie = `phone=${encodeURIComponent(phone)}; max-age=${7 * 24 * 60 * 60}`;
 
         errorElement.innerText = "";
-        document.getElementById('form_result').innerText = "Data Saved Successfully!";
+        resultElement.innerText = "Data Saved Successfully!";
     }
 
 }
 loadDetails();
 
-document.getElementById('saveBtn').addEventListener('click', saveDetails);
